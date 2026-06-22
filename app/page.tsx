@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { site, stats, conditions } from '@/lib/site';
 import { services } from '@/lib/services';
 import { team } from '@/lib/team';
+import { reviews } from '@/lib/reviews';
 import ServiceCard from '@/components/ServiceCard';
 import TeamCard from '@/components/TeamCard';
 import CTABanner from '@/components/CTABanner';
@@ -45,6 +46,12 @@ const schema = {
     'One-on-one physical therapy, aquatic therapy, and occupational therapy in Oshkosh, WI. The only private practice in Oshkosh with a therapeutic pool.',
   openingHours: ['Mo-Th 08:00-17:30', 'Fr 08:00-13:00'],
 };
+
+const placeholderReviews = [
+  { name: 'Patient Name, Oshkosh', rating: 5, text: 'Patient testimonial coming soon.', source: '' },
+  { name: 'Patient Name, Oshkosh', rating: 5, text: 'Patient testimonial coming soon.', source: '' },
+  { name: 'Patient Name, Oshkosh', rating: 5, text: 'Patient testimonial coming soon.', source: '' },
+];
 
 export default function HomePage() {
   const teamPreview = team.slice(0, 6);
@@ -224,25 +231,48 @@ export default function HomePage() {
           </h2>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <figure
-              key={i}
-              className="flex flex-col rounded-xl border border-dashed border-navy/20 bg-white p-6"
-            >
-              <Icon name="star" className="h-6 w-6 text-gold" />
-              <blockquote className="mt-4 flex-1 italic text-charcoal/50">
-                {/* TODO: Replace with a real patient testimonial when provided. */}
-                &ldquo;Patient testimonial coming soon.&rdquo;
-              </blockquote>
-              <figcaption className="mt-4 text-sm font-semibold text-charcoal/40">
-                — Patient Name, Oshkosh
-              </figcaption>
-            </figure>
-          ))}
+          {(reviews.length > 0 ? reviews : placeholderReviews).map(
+            (review, i) => (
+              <figure
+                key={i}
+                className={`flex flex-col rounded-xl border bg-white p-6 ${
+                  reviews.length > 0
+                    ? 'border-navy/10 shadow-sm'
+                    : 'border-dashed border-navy/20'
+                }`}
+              >
+                <div
+                  className="flex gap-0.5 text-gold"
+                  aria-label={`${review.rating} out of 5 stars`}
+                >
+                  {Array.from({ length: review.rating }).map((_, s) => (
+                    <Icon key={s} name="star" className="h-5 w-5" />
+                  ))}
+                </div>
+                <blockquote
+                  className={`mt-4 flex-1 italic ${
+                    reviews.length > 0 ? 'text-charcoal/80' : 'text-charcoal/50'
+                  }`}
+                >
+                  &ldquo;{review.text}&rdquo;
+                </blockquote>
+                <figcaption
+                  className={`mt-4 text-sm font-semibold ${
+                    reviews.length > 0 ? 'text-navy' : 'text-charcoal/40'
+                  }`}
+                >
+                  — {review.name}
+                  {review.source ? `, via ${review.source}` : ''}
+                </figcaption>
+              </figure>
+            )
+          )}
         </div>
-        <p className="mt-6 text-center text-xs text-charcoal/40">
-          Real patient quotes will be added here when provided.
-        </p>
+        {reviews.length === 0 && (
+          <p className="mt-6 text-center text-xs text-charcoal/40">
+            Real patient quotes will be added here when provided.
+          </p>
+        )}
       </section>
 
       {/* Location / CTA strip */}
