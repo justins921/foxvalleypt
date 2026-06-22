@@ -7,6 +7,8 @@ import { reviews } from '@/lib/reviews';
 import ServiceCard from '@/components/ServiceCard';
 import TeamCard from '@/components/TeamCard';
 import CTABanner from '@/components/CTABanner';
+import BodyAreaFinder from '@/components/BodyAreaFinder';
+import TrustStrip from '@/components/TrustStrip';
 import Icon from '@/components/Icon';
 
 const whyPoints = [
@@ -85,6 +87,10 @@ export default function HomePage() {
               One-on-one physical therapy, aquatic therapy, and occupational
               therapy. Real care from a team that knows you by name.
             </p>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-cream ring-1 ring-white/20">
+              <Icon name="check" className="h-4 w-4 text-gold-light" />
+              Free injury screenings • No referral needed
+            </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={`tel:${site.phoneHref}`}
@@ -94,12 +100,18 @@ export default function HomePage() {
                 Call {site.phone}
               </a>
               <Link
-                href="/services"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-7 py-3.5 font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
-                View Our Services
+                Request an Appointment
               </Link>
             </div>
+            <Link
+              href="/services"
+              className="mt-4 inline-block text-sm font-semibold text-cream/80 underline-offset-4 hover:text-white hover:underline"
+            >
+              Or view our services →
+            </Link>
           </div>
         </div>
       </section>
@@ -117,6 +129,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* What Hurts? body-area finder */}
+      <BodyAreaFinder />
 
       {/* Why Fox Valley */}
       <section className="mx-auto max-w-content px-4 py-16 md:px-6 md:py-20">
@@ -192,6 +207,9 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      {/* Insurance / Direct Access / free screening trust strip */}
+      <TrustStrip />
 
       {/* Team preview */}
       <section className="bg-white">

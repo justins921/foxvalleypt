@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { site } from '@/lib/site';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
@@ -106,13 +107,16 @@ export default function ContactPage() {
           {/* Form */}
           <div>
             <h2 className="font-serif text-2xl font-bold text-navy">
-              Send Us a Message
+              Request an Appointment
             </h2>
             <p className="mt-2 text-charcoal/75">
-              Have a question or want to schedule? Fill out the form below.
+              Tell us a little about what&apos;s going on and we&apos;ll reach
+              out to get you scheduled. No referral needed.
             </p>
             <div className="mt-6">
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
         </div>
