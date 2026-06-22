@@ -26,10 +26,6 @@ export default function TeamPage() {
             <TeamCard key={member.name} member={member} />
           ))}
         </div>
-        <p className="mt-8 text-center text-xs text-charcoal/40">
-          Team photos are placeholders — replace the images in
-          /public/images/ with real headshots when available.
-        </p>
       </section>
 
       <CTABanner heading="Want to join our team?" text="We're always looking for caring professionals. Explore careers at Fox Valley Physical Therapy." />

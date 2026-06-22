@@ -41,14 +41,15 @@ public/forms/              Patient intake PDF goes here
 scripts/                   Placeholder image generator
 ```
 
+## Images
+
+Team headshots, the hero/facility photo, and the logo in `public/images/`
+were sourced from the practice's existing website. Replace any of them with
+updated photography by dropping a new file in `public/images/` and pointing
+the relevant reference (`lib/team.ts`, `app/page.tsx`, or the layout) at it.
+
 ## Content to replace before launch
 
-These are placeholders flagged throughout the codebase:
-
-- **Team photos** — `public/images/placeholder-team.png`. Add real headshots
-  and update the `image` paths in `lib/team.ts`.
-- **Hero / OG image** — `public/images/placeholder-hero.png` and
-  `placeholder-og.png`.
 - **Patient intake PDF** — drop the real PDF at
   `public/forms/patient-intake-form.pdf`.
 - **Testimonials** — homepage testimonial section has three placeholder cards.

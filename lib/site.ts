@@ -1,3 +1,5 @@
+import { team } from './team';
+
 export const site = {
   name: 'Fox Valley Physical Therapy & Wellness Clinic',
   shortName: 'Fox Valley Physical Therapy',
@@ -30,7 +32,7 @@ export const site = {
 export const stats = [
   { value: '34+', label: 'Years in Business' },
   { value: '35,000+', label: 'Patients Treated' },
-  { value: '14', label: 'Healthcare Team Members' },
+  { value: String(team.length), label: 'Healthcare Team Members' },
   { value: 'Only', label: 'Private Practice in Oshkosh with Aquatic Therapy' },
 ];
 

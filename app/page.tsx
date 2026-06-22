@@ -60,8 +60,8 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-navy">
         <div className="absolute inset-0">
           <Image
-            src="/images/placeholder-hero.png"
-            alt="The Fox Valley Physical Therapy team and facility in Oshkosh, WI"
+            src="/images/facility-team.jpg"
+            alt="The Fox Valley Physical Therapy team outside their facility in Oshkosh, WI"
             fill
             priority
             sizes="100vw"

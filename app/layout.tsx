@@ -43,14 +43,14 @@ export const metadata: Metadata = {
     title: 'Fox Valley Physical Therapy & Wellness Clinic | Oshkosh, WI',
     description:
       'One-on-one physical therapy, aquatic therapy, and occupational therapy in Oshkosh, WI. The only private practice in Oshkosh with a therapeutic pool.',
-    images: ['/images/placeholder-og.png'],
+    images: ['/images/facility-team.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fox Valley Physical Therapy & Wellness Clinic | Oshkosh, WI',
     description:
       'One-on-one physical therapy, aquatic therapy, and occupational therapy in Oshkosh, WI.',
-    images: ['/images/placeholder-og.png'],
+    images: ['/images/facility-team.jpg'],
   },
   alternates: {
     canonical: site.url,

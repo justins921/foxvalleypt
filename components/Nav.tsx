@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { site } from '@/lib/site';
 import { servicePages } from '@/lib/services';
 import Icon from './Icon';
@@ -27,12 +28,22 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-navy/10 bg-cream/95 backdrop-blur">
       <nav className="mx-auto flex max-w-content items-center justify-between gap-4 px-4 py-3 md:px-6">
-        <Link href="/" className="flex flex-col leading-tight">
-          <span className="font-serif text-lg font-bold text-navy md:text-xl">
-            Fox Valley
-          </span>
-          <span className="text-[0.65rem] font-semibold uppercase tracking-widest text-gold-dark">
-            Physical Therapy
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            src="/images/logo.webp"
+            alt="Fox Valley Physical Therapy logo"
+            width={44}
+            height={44}
+            priority
+            className="h-10 w-10"
+          />
+          <span className="flex flex-col leading-tight">
+            <span className="font-serif text-lg font-bold text-navy md:text-xl">
+              Fox Valley
+            </span>
+            <span className="text-[0.65rem] font-semibold uppercase tracking-widest text-gold-dark">
+              Physical Therapy
+            </span>
           </span>
         </Link>
 
